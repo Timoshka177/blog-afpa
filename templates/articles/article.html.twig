@@ -23,6 +23,14 @@
 
         <p class="mt-5"> {{article.description}} </p>
 
+
+    {% if is_granted('ROLE_ADMIN')  %}
+        <a href="{{path('delete_article', { id : article.id} )}}" class="btn btn-danger"> SUPPRIMER </a>
+        <a href="{{path('delete_article', { id : article.id} )}}" class="btn btn-danger"> MODIFIER </a>
+    {% endif %}
+
+
+
         <a href="{{path('delete_article', { id : article.id} )}}" class="btn btn-danger"> SUPPRIMER </a>
         <a href="{{path('modify_article', { id : article.id} )}}" class="btn btn-warning"> MODIFIER </a>
 
