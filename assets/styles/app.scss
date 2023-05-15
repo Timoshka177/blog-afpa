@@ -1,0 +1,53 @@
+
+$primary:#5e24c3;
+
+// https://getbootstrap.com/docs/5.0/customize/css-variables/
+
+@import "~bootstrap/scss/bootstrap";
+
+// Common css
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    // text-decoration: none !important;
+    text-decoration: none;
+}
+
+.side-bar {
+    position: fixed;
+    width: 350px;
+    height: 100vh;
+    // 100%
+    // px
+    // viewHeight viewWidth
+    border: 1px solid;
+}
+
+.main-content {
+    margin-left:350px;
+    margin-top: 65px;
+
+    .inner-content {
+
+        padding: 3rem;
+    }
+}
+
+#main-nav {
+    position: fixed;
+    width: 100vw;
+    height: 65px;
+    top: 0;
+}
+
+.article {
+
+    img {
+        width: 300px;
+        border: 1px solid;
+    }
+
+}

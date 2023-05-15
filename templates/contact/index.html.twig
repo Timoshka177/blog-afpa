@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+
+{% form_theme contact_form 'bootstrap_5_layout.html.twig' %}
+
+
+{% block body %}
+
+    <div class="main-content p-5">
+
+        {# <h3>The contact has the following errors</h3>
+        <ul>
+            {% for error in errors %}
+                <li>{{ error.message }}</li>
+            {% endfor %}
+        </ul> #}
+
+        {# Afficher les msg flash#}
+        {% for msg in app.flashes('confirmation') %}
+            <div class="alert alert-success">
+                {{ msg }}
+            </div>
+        {% endfor %}
+    
+        {{ form(contact_form, {attr: {'novalidate': 'novalidate'}}) }}
+
+    </div>
+
+{% endblock %}

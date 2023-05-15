@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block meta_description %} {% endblock %}
+{% block title %} {% endblock %}
+
+{% form_theme articles_form 'bootstrap_5_layout.html.twig' %}
+
+
+{% block body %}
+
+    <div class="mt-5 pt-5 px-5 d-flex flex-column align-items-center">
+
+        {{ form(articles_form) }}
+
+        
+    </div>
+
+{% endblock %}
