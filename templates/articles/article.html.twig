@@ -17,34 +17,28 @@
         <div class="mb-3"> {{ article.author }} {{ article.date|date('d-m-Y') }} </div>
 
         <div>
-            <img src="{{ asset('build/images/' ~ article.picture ) }}" alt="{{ article.chapo }}" title="{{ article.chapo }}" />
+            <img src="{{ asset('images/articles/' ~ article.picture ) }}" alt="{{ article.chapo }}" title="{{ article.chapo }}" />
             <p> {{ article.legendMainPicture }} </p>
         </div>
 
         <p class="mt-5"> {{article.description}} </p>
 
 
-    {% if is_granted('ROLE_ADMIN')  %}
-        <a href="{{path('delete_article', { id : article.id} )}}" class="btn btn-danger"> SUPPRIMER </a>
-        <a href="{{path('delete_article', { id : article.id} )}}" class="btn btn-danger"> MODIFIER </a>
-    {% endif %}
-
-
-
-        <a href="{{path('delete_article', { id : article.id} )}}" class="btn btn-danger"> SUPPRIMER </a>
-        <a href="{{path('modify_article', { id : article.id} )}}" class="btn btn-warning"> MODIFIER </a>
-
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{path('modify_article', { id : article.id} )}}" class="btn btn-warning"> MODIFIER </a>
+	        <a href="{{path('delete_article', { id : article.id} )}}" class="btn btn-danger"> SUPPRIMER </a>
+        {% endif %}
     </div>
 
-    <div class="mt-5 ps-5 mx-auto">
+    <div class="mt-5 ps-5 mx-auto border">
         <h2> Articles similaires </h2>
 
-        <div class="d-flex">
+        <div class="d-flex border">
             {% for relatedArticle in relatedArticles %} 
 
-                <div class="article d-flex my-3 mx-auto">
+                <div class="article d-flex my-3 border mx-auto">
                     <a class="d-flex text-decoration-none text-reset" href="{{ path('show_article_by_id', { id : relatedArticle.id }) }}">
-                        <img src="{{ asset('build/images/' ~ relatedArticle.picture ) }}" />
+                        <img src="{{ asset('images/articles/' ~ relatedArticle.picture ) }}" />
                         <div class="d-flex flex-column ps-2">   
                             <h6>{{ relatedArticle.title }} - {{ relatedArticle.date|date("d-m-Y") }} </h6>
                             <p>{{ article.chapo }} </p>

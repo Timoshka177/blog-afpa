@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block meta_description %} {% endblock %}
+{% block title %} {% endblock %}
+
+{% form_theme add_articles_form 'bootstrap_5_layout.html.twig' %}
+
+
+{% block body %}
+
+    <div class="mt-5 pt-5 px-5 d-flex flex-column align-items-center">
+
+        <h1>Ajouter un nouvel article</h1>
+
+        {{ form_start(add_articles_form) }}
+
+                {{ form_row(add_articles_form.title) }}
+                {{ form_row(add_articles_form.catchPhrase) }}
+                {{ form_row(add_articles_form.date) }}
+                {{ form_row(add_articles_form.author) }}
+                {{ form_row(add_articles_form.description) }}
+                {{ form_row(add_articles_form.posterFile) }}
+                {{ form_row(add_articles_form.relatedSubjects) }}
+                {{ form_row(add_articles_form.chapo) }}
+                {{ form_row(add_articles_form.legendMainPicture) }}
+                {{ form_row(add_articles_form.authorWebsite) }}
+                {{ form_row(add_articles_form.relatedCourse) }}
+                {{ form_row(add_articles_form.category) }}
+                {{ form_row(add_articles_form.modifier, {'label' : 'Ajouter'}) }}
+
+           
+            <a href="{{ path('app_home') }}" class="btn btn-secondary">Annuler</a>
+
+        {{ form_end(add_articles_form) }}
+
+    </div>
+
+{% endblock %}
